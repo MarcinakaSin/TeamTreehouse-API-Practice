@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="moviesdb">
+<html lang="en" data-ng-app="moviesdb">
 <head>
   <meta charset="utf-8">
   <title>Dabbble</title>
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css"/>
   <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body ng-controller="AppCtrl">
+<body>
   <div class="container">
     <div class="navbar">
       <div class="navbar-inner">
-        <a class="brand" href="#/">Dabbble</a>
+        <a class="brand" href="#/">Movies</a>
         <ul class="nav">
+          <li><a class="brand" href="#/now_playing">Now Playing</a></li>
+          <li><a class="brand" href="#/popular">Popular</a></li>
+          <li><a class="brand" href="#/top_rated">Top Rated</a></li>
+          <li><a class="brand" href="#/upcoming">Upcoming</a></li>
         </ul>
       </div>
     </div>
     <div ng-view></div>
-    <div ng-controller="ShortListCtrl">
-      <ul class="thumbnails">
-      <li class="thumbnail" ng-repeat="movie in list.results">
-        {{ movie.title }}
-      </li>
-      </ul>
-    </div>
-
   </div>
   <script src="lib/angular/angular.js"></script>
   <script src="js/app.js"></script>

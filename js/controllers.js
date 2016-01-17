@@ -2,15 +2,31 @@
 
 var controllers = angular.module('movies.controllers', []);
 
-controllers.controller('AppCtrl', function($scope) {
+var apiKey = 'INSERT API KEY HERE';
 
+
+controllers.controller('MovieListCtrl', function ($scope, $routeParams, $http) {
+
+	console.log($routeParams);
+	var path = $routeParams.list;
+	$scope.list;
+	//var path = 'now_playing';
+	$scope.url = 'https://api.themoviedb.org/3/movie/' + path + '?api_key=' + apiKey + '&append_to_response=images,releases,trailers&language=en&include_image_language=en,null&callback=JSON_CALLBACK';
+	$http.jsonp($scope.url).then(function (data){
+		$scope.list = data.data;
+		console.log(data);
+	});
 });
 
-controllers.controller('ShortListCtrl', function ($scope, $http) {
-	$scope.list;
+controllers.controller('MovieCtrl', function ($routeParams, $scope, $http) {
 
-	$http.jsonp('https://api.themoviedb.org/3/movie/550?api_key=ac5d3d00a8b1abfd5439fad20e0cb342&callback=JSON_CALLBACK').then(function (data){
-		$scope.list = data.data;
+	console.log($routeParams);
+	var path = $routeParams.id;
+	$scope.movie;
+	//var path = 'now_playing';
+	$scope.url = 'https://api.themoviedb.org/3/movie/' + path + '?api_key=' + apiKey + '&append_to_response=images,releases,trailers&language=en&include_image_language=en,null&callback=JSON_CALLBACK';
+	$http.jsonp($scope.url).then(function (data){
+		$scope.movie = data.data;
 		console.log(data);
 	});
 });

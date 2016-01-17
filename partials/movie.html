@@ -1,0 +1,63 @@
+<div class="media shot_header">
+  <div class="pull-left">
+    <img class="media-object" ng-src="http://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}" >
+  </div>
+  <div class="media-body">
+    <h1>{{movie.title}}</h1>
+    <span class="muted"></span>
+    <a href="{{movie.homepage}}">
+      {{movie.status }}
+    </a>
+    | 
+  </div>
+</div>
+
+<div class="row">
+	<div style="width:100%;">
+	  <div class="span6">
+	    <img class="shot_image" ng-src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}">
+
+	    <div class="page-header">
+	      <h2>Responses</h2>
+		    <p>
+		    {{ movie.overview }}
+		    </p>
+	    </div>
+	  </div>
+
+	  <div class="span3">
+	      <ul class="nav nav-list">
+	        <li>
+	          <i class="icon-heart"></i>
+	          {{movie.vote_average}} Vote Average
+	        </li>
+	        <li>
+	          <i class="icon-eye-open"></i>
+	          {{movie.vote_count}} Vote Count
+	        </li>
+	        <li>
+	          <i class="icon-share-alt"></i>
+	          {{movie.release_date}} Release Date
+	        </li>
+	        <li>
+	          <i class="icon-comment"></i>
+	          {{movie.tagline}} 
+	        </li>
+	        <li>
+	          <a href="https://youtu.be/{{movie.trailers.youtube[0].source}}">
+	            <i class="icon-globe"></i>
+	            Trailer
+	          </a>
+	        </li>
+	      </ul>
+
+	  </div>
+	<div class="span12">
+	  <div ng-repeat="image in movie.images.backdrops">
+	    	<a href="http://image.tmdb.org/t/p/w500{{image.file_path}}" target="_new">
+	        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w500{{image.file_path}}">
+	        </a>
+	    
+	  </div>
+   </div>
+</div>
