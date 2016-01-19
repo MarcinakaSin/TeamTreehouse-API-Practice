@@ -1,36 +1,36 @@
 
     <div>
       <ul class="thumbnails">
-        <li class="shot span3" ng-repeat="movie in list.results">
+        <li class="shot span3" ng-repeat="movie in list.results" style="min-height: 475px;">
           <div class="thumbnail">
-          <a class="player" href="#/movie/{{ movie.id }}">
-            <img alt="{{ movie.title }} image" data-ng-src="http://image.tmdb.org/t/p/w500{{ movie.poster_path }}">
-          </a>
 
           <a href="#/movie/{{ movie.id }}">
             {{ movie.title }}
-            <br />
-           {{ movie.overview }}
           </a>
+            <br />
+          <a class="player" href="#/movie/{{ movie.id }}">
+            <img alt="{{ movie.title }} image" data-ng-src="http://image.tmdb.org/t/p/w342{{ movie.poster_path }}" title="{{ movie.overview }}">
+          </a>
+          <p style="small">
+          </p>
           <div class="stats">
             <span class="stat">
-              <i class="icon-eye-open"></i>
-              {{movie.popularity}}
-            </span>
+              Popularity: <i class="icon-heart"></i> {{ movie.popularity | number:0 }}%
+            </span><br />
             <span class="stat">
-              <i class="icon-comment"></i>
-              {{movie.vote_count}}
-            </span>
+              Total Votes: {{movie.vote_count}}
+            </span><br />
             <span class="stat">
-              <i class="icon-heart"></i>
-              {{movie.vote_average}}
-            </span>
+              Average Vote: <i class="icon-heart"></i> {{movie.vote_average}}
+            </span><br />
             <span class="stat">
-              <i class="icon-share-alt"></i>
-              {{movie.release_date}}
+              Released Date: {{ movie.release_date | movieDate:"MMM d, yyyy"}}
             </span>
           </div>
           </div>
         </li>
       </ul>
+      <button class="btn btn-primary" ng-click="loadNextPage();">
+        Load More
+      </button>
     </div>

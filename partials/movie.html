@@ -3,17 +3,15 @@
     <img class="media-object" ng-src="http://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}" >
   </div>
   <div class="media-body">
-    <h1>{{movie.title}}</h1>
-    <span class="muted"></span>
     <a href="{{movie.homepage}}">
-      {{movie.status }}
+	    <h1>{{movie.title}}</h1>
+	    <span class="muted"></span>
     </a>
-    | 
+	    {{movie.tagline}} 
   </div>
 </div>
 
 <div class="row">
-	<div style="width:100%;">
 	  <div class="span6">
 	    <img class="shot_image" ng-src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}">
 
@@ -23,41 +21,43 @@
 		    {{ movie.overview }}
 		    </p>
 	    </div>
+	    	<p>
+		  <div ng-repeat="image in movie.images.backdrops" style="max-width: 100px;">
+	    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
+	        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
+	        </a>
+		  </div>
+		  <div ng-repeat="image in movie.images.posters" style="max-width: 100px;">
+	    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
+	        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
+	        </a>
+		  </div>
 	  </div>
 
 	  <div class="span3">
 	      <ul class="nav nav-list">
 	        <li>
-	          <i class="icon-heart"></i>
-	          {{movie.vote_average}} Vote Average
+	          Vote Average: <i class="icon-heart"></i> {{movie.vote_average}} 
 	        </li>
 	        <li>
-	          <i class="icon-eye-open"></i>
-	          {{movie.vote_count}} Vote Count
+	          Vote Count: {{movie.vote_count | number }} 
 	        </li>
 	        <li>
-	          <i class="icon-share-alt"></i>
-	          {{movie.release_date | movieDate:"MMM d, yyyy" }} Release Date
+	          Release Date: 
+	          {{movie.release_date | movieDate:"MMM d, yyyy" }} 
 	        </li>
-	        <li>
-	          <i class="icon-comment"></i>
-	          {{movie.tagline}} 
-	        </li>
-	        <li>
-	          <a href="https://youtu.be/{{movie.trailers.youtube[0].source}}">
-	            <i class="icon-globe"></i>
-	            Trailer
+	        <li ng-repeat="trailer in movie.trailers.youtube">
+	          <a href="https://youtu.be/{{trailer.source}}">
+	            {{ trailer.name }} 
 	          </a>
+	        </li>
+	        <li>
+	            Gentre: 
+	            <span ng-repeat="genre in movie.genres"> 
+	            {{ genre.name }}<span ng-show="!$last">, </span>
+	            </span>
 	        </li>
 	      </ul>
 
 	  </div>
-	<div class="span12">
-	  <div ng-repeat="image in movie.images.backdrops">
-	    	<a href="http://image.tmdb.org/t/p/w500{{image.file_path}}" target="_new">
-	        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w500{{image.file_path}}">
-	        </a>
-	    
-	  </div>
-   </div>
 </div>
