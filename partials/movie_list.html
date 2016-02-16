@@ -11,8 +11,6 @@
           <a class="player" href="#/movie/{{ movie.id }}">
             <img alt="{{ movie.title }} image" data-ng-src="http://image.tmdb.org/t/p/w342{{ movie.poster_path }}" title="{{ movie.overview }}">
           </a>
-          <p style="small">
-          </p>
           <div class="stats">
             <span class="stat">
               Popularity: <i class="icon-heart"></i> {{ movie.popularity | number:0 }}%

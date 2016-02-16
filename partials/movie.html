@@ -12,52 +12,61 @@
 </div>
 
 <div class="row">
-	  <div class="span6">
-	    <img class="shot_image" ng-src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}">
-
+	  <div class="flex-container">
+		  <div class="main-flex-item">
+		  	<!-- Main Image -->
+		    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}">
+		  	<!-- Main Image -->
+		  </div>
+		  <div class="main-flex-item">
+		  	<!-- Statistics Section -->
+		      <ul class="nav nav-list">
+		        <li>
+		          Vote Average: <i class="icon-heart"></i> {{movie.vote_average}} 
+		        </li>
+		        <li>
+		          Vote Count: {{movie.vote_count | number }} 
+		        </li>
+		        <li>
+		          Release Date: 
+		          {{movie.release_date | movieDate:"MMM d, yyyy" }} 
+		        </li>
+		        <li ng-repeat="trailer in movie.trailers.youtube">
+		          <a href="https://youtu.be/{{trailer.source}}">
+		            {{ trailer.name }} 
+		          </a>
+		        </li>
+		        <li>
+		            Gentre: 
+		            <span ng-repeat="genre in movie.genres"> 
+		            {{ genre.name }}<span ng-show="!$last">, </span>
+		            </span>
+		        </li>
+		      </ul>
+			<!-- Statistics Section -->
+		  </div>
+	  </div>
+	  	<!-- Movie Description -->
 	    <div class="page-header">
-	      <h2>Responses</h2>
+	      <h2>Movie Description</h2>
 		    <p>
 		    {{ movie.overview }}
 		    </p>
 	    </div>
-	    	<p>
-		  <div ng-repeat="image in movie.images.backdrops" style="max-width: 100px;">
-	    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
-	        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
-	        </a>
-		  </div>
-		  <div ng-repeat="image in movie.images.posters" style="max-width: 100px;">
-	    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
-	        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
-	        </a>
-		  </div>
-	  </div>
+	  	<!-- Movie Description -->
 
-	  <div class="span3">
-	      <ul class="nav nav-list">
-	        <li>
-	          Vote Average: <i class="icon-heart"></i> {{movie.vote_average}} 
-	        </li>
-	        <li>
-	          Vote Count: {{movie.vote_count | number }} 
-	        </li>
-	        <li>
-	          Release Date: 
-	          {{movie.release_date | movieDate:"MMM d, yyyy" }} 
-	        </li>
-	        <li ng-repeat="trailer in movie.trailers.youtube">
-	          <a href="https://youtu.be/{{trailer.source}}">
-	            {{ trailer.name }} 
-	          </a>
-	        </li>
-	        <li>
-	            Gentre: 
-	            <span ng-repeat="genre in movie.genres"> 
-	            {{ genre.name }}<span ng-show="!$last">, </span>
-	            </span>
-	        </li>
-	      </ul>
-
-	  </div>
+	    <!-- Image Gallery -->
+	    <div class="flex-container">
+			<div ng-repeat="image in movie.images.backdrops" class="flex-item">
+		    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
+		        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
+		        </a>
+		  	</div>
+		  	<div ng-repeat="image in movie.images.posters" class="flex-item">
+		    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
+		        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
+		        </a>
+			</div>
+		</div>
+		<!-- Image Gallery -->
 </div>

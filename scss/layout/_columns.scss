@@ -1,0 +1,25 @@
+.flex {
+    &-container {
+    	@extends %clearfix;
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-justify-content: space-between;
+        -ms-justify-content: space-between;
+        justify-content: space-between;
+    }
+
+    &-item {
+        /*background-color: cornflowerblue;*/
+        width: 100px;
+        margin: 5px;
+    }
+}
+.main-flex-item {
+    /*background-color: cornflowerblue;*/
+    width: calc(940px / 2 - 10px * 4);
+    margin: 10px auto 10px 10px;
+}

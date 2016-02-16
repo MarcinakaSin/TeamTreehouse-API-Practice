@@ -1,0 +1,26 @@
+
+.shot .title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.stats {
+  @extend %centered;
+  background: $grey;
+  opacity: 0.5;
+  padding: 4px 0;
+}
+
+.stats .stat {
+  padding: 5px;
+}
+
+.shot_image {
+  width: 100%;
+}
+.comment img {
+  height: 60px;
+  width: 60px;
+}
