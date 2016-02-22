@@ -1,15 +1,11 @@
 .flex {
     &-container {
     	@extends %clearfix;
-        display: -webkit-flex;
-        display: -ms-flex;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-justify-content: space-between;
-        -ms-justify-content: space-between;
-        justify-content: space-between;
+        @include align-items(stretch);
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(space-between);
+        @include flex-wrap(wrap);
     }
 
     &-item {
@@ -20,6 +16,26 @@
 }
 .main-flex-item {
     /*background-color: cornflowerblue;*/
-    width: calc(940px / 2 - 10px * 4);
+    @include calc(width, "940px / 2 - 10px * 4");
+    /*width: calc(940px / 2 - 10px * 4);*/
     margin: 10px auto 10px 10px;
+}
+
+.images {
+    &-poster {
+        @include calc(width, "100% * (2/3)");
+        @include align-items(stretch);
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(space-around);
+        @include flex-wrap(wrap);
+    }
+    &-wallpaper {
+        @include calc(width, "100% * (1/3)");
+        @include align-items(stretch);
+        @include display(flex);
+        @include flex-direction(row);
+        @include justify-content(space-around);
+        @include flex-wrap(wrap);
+    }
 }

@@ -1,6 +1,5 @@
-# TeamTreehouse-API-Practice
-<<<<<<< HEAD
-Creating a repository to practice building single page applications with API interaction.
-=======
-Practicing Routing and API Interface
->>>>>>> 0872fb3636793ce2c4e3c1d6fb286ac7c08c189b
+Movie API 
+
+This API can be viewed at: http://massplash.com/projects/movie-api
+
+The API used for this site came from: https://www.themoviedb.org

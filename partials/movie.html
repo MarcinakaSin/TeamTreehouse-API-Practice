@@ -1,40 +1,40 @@
 <div class="media shot_header">
-  <div class="pull-left">
-    <img class="media-object" ng-src="http://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}" >
-  </div>
-  <div class="media-body">
-    <a href="{{movie.homepage}}">
-	    <h1>{{movie.title}}</h1>
-	    <span class="muted"></span>
-    </a>
+  	<div class="pull-left">
+    	<img class="media-object" ng-src="http://image.tmdb.org/t/p/w500{{ movie.backdrop_path }}" />
+  	</div>
+  	<div class="media-body">
+	    <a href="{{movie.homepage}}">
+		    <h1>{{movie.title}}</h1>
+		    <span class="muted"></span>
+	    </a>
 	    {{movie.tagline}} 
-  </div>
+  	</div>
 </div>
 
 <div class="row">
-	  <div class="flex-container">
-		  <div class="main-flex-item">
+	<div class="flex-container">
+		<div class="main-flex-item">
 		  	<!-- Main Image -->
-		    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}">
+		    <img ng-src="http://image.tmdb.org/t/p/w500{{movie.backdrop_path}}" />
 		  	<!-- Main Image -->
-		  </div>
-		  <div class="main-flex-item">
-		  	<!-- Statistics Section -->
-		      <ul class="nav nav-list">
+		</div>
+		<div class="main-flex-item">
+		<!-- Statistics Section -->
+		    <ul class="nav nav-list">
 		        <li>
-		          Vote Average: <i class="icon-heart"></i> {{movie.vote_average}} 
+		          	Vote Average: <i class="icon-heart"></i> {{movie.vote_average}} 
 		        </li>
 		        <li>
-		          Vote Count: {{movie.vote_count | number }} 
+		          	Vote Count: {{movie.vote_count | number }} 
 		        </li>
 		        <li>
-		          Release Date: 
-		          {{movie.release_date | movieDate:"MMM d, yyyy" }} 
+		          	Release Date: 
+		          	{{movie.release_date | movieDate:"MMM d, yyyy" }} 
 		        </li>
 		        <li ng-repeat="trailer in movie.trailers.youtube">
-		          <a href="https://youtu.be/{{trailer.source}}">
-		            {{ trailer.name }} 
-		          </a>
+		          	<a prettyphoto rel="prettyPhoto[Trailer]" href="https://youtu.be/{{trailer.source}}" title="<a href='https://youtu.be/{{trailer.source}}' target='_new'> {{ trailer.name }} </a>" alt="Flowers">
+		            	{{ trailer.name }} 
+		          	</a>
 		        </li>
 		        <li>
 		            Gentre: 
@@ -42,31 +42,41 @@
 		            {{ genre.name }}<span ng-show="!$last">, </span>
 		            </span>
 		        </li>
-		      </ul>
-			<!-- Statistics Section -->
-		  </div>
-	  </div>
-	  	<!-- Movie Description -->
-	    <div class="page-header">
-	      <h2>Movie Description</h2>
-		    <p>
-		    {{ movie.overview }}
-		    </p>
-	    </div>
-	  	<!-- Movie Description -->
+		    </ul>
+		<!-- Statistics Section -->
+		</div>
+	 </div>
+  	<!-- Movie Description -->
+    <div class="page-header">
+      <h2>Movie Description</h2>
+	    <p>
+	    	{{ movie.overview }}
+	    </p>
+    </div>
+  	<!-- Movie Description -->
 
-	    <!-- Image Gallery -->
-	    <div class="flex-container">
-			<div ng-repeat="image in movie.images.backdrops" class="flex-item">
-		    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
-		        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
+    <!-- Image Gallery -->
+    <div class="flex-container">
+    	<div class="images-wallpaper">
+    		<h3>Wallpaper</h3>
+    	</div>
+    	<div class="images-poster">
+    		<h3>Posters</h3>
+    	</div>
+    	<div class="images-wallpaper">
+			<div ng-repeat="image in movie.images.backdrops" class="flex-item gallery">
+		    	<a prettyphoto rel="prettyPhoto[Wallpaper]" href="http://image.tmdb.org/t/p/original{{image.file_path}}" title="<a href='http://image.tmdb.org/t/p/original{{image.file_path}}' target='_new'> Full {{movie.title}} Walpaper</a>">
+		        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}" ng-alt="{{movie.title}} Walpaper" />
 		        </a>
 		  	</div>
+	  	</div>
+    	<div class="images-poster">
 		  	<div ng-repeat="image in movie.images.posters" class="flex-item">
-		    	<a href="http://image.tmdb.org/t/p/original{{image.file_path}}" target="_new">
-		        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}">
+		    	<a prettyphoto rel="prettyPhoto[Poster]" href="http://image.tmdb.org/t/p/original{{image.file_path}}" title="<a href='http://image.tmdb.org/t/p/original{{image.file_path}}' target='_new'> Full {{movie.title}} Poster</a>">
+		        	<img class="thumbnail" ng-src="http://image.tmdb.org/t/p/w92{{image.file_path}}" ng-alt="{{movie.title}} Poster" />
 		        </a>
 			</div>
 		</div>
-		<!-- Image Gallery -->
+	</div>
+	<!-- Image Gallery -->
 </div>

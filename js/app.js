@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('moviesdb', ['movies.controllers', 'movie.filters', 'movie.services']);
+var app = angular.module('moviesdb', ['movies.controllers', 'movie.filters', 'movie.services', 'movies.directives']);
 
 app.config(function($routeProvider) {
 	//	when("listens for right", {"defines controller", "defines view file"})

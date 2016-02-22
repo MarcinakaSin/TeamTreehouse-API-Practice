@@ -11,13 +11,15 @@ controllers.controller('MovieListCtrl', function ($scope, movies, $routeParams) 
 
 	if(validLists.indexOf(list) > -1) {
 		movies.list(list).then(function (data){
-			$scope.list = data.data;
 			console.log(data);
+			$scope.list = data.data;
+			
 		});
 	} else { 
 		window.location.href = '#/now_playing';
 	}
 
+			
 	$scope.loadNextPage = function() {
 		movies.list(list, { page: $scope.list.page + 1 }).then(function(data) {
 			//	if we wanted to replace the data on the page instead of concatinating.
