@@ -6,3 +6,9 @@ $white			: #fff;
 $black			: #000;
 
 $primary-color	: $grey;
+
+/* Media Query Breakpoints */
+
+$brk-small		: '(max-width: 768px)';
+$brk-mid		: '(max-width: 992px)';
+$brk-wide		: '(max-width: 1200px)';

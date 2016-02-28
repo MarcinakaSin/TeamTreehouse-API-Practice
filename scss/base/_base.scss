@@ -8,6 +8,7 @@
 
 .stats {
   @extend %centered;
+  margin-top: auto;
   background: $grey;
   opacity: 0.5;
   padding: 4px 0;
